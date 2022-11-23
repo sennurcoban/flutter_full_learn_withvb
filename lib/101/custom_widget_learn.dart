@@ -17,7 +17,7 @@ class CustomWidgetLearn extends StatelessWidget {
               width: MediaQuery.of(context).size.width,//Sayfanın widthini aldık.
               child: CustomFoodButton(title:title,onPressed: () {})),
           )),
-          SizedBox(height: 100,),
+          const SizedBox(height: 100,),
           CustomFoodButton(title:title, onPressed: () {},),
         ],
       ),
@@ -43,7 +43,7 @@ class CustomFoodButton extends StatelessWidget with _ColorsUtility,_PaddingUtili
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(backgroundColor :buttonBackGroundColor, shape: StadiumBorder()),
+        style: ElevatedButton.styleFrom(backgroundColor :buttonBackGroundColor, shape:const StadiumBorder()),
         onPressed: onPressed, child: Padding(
           padding: bigPadding,
           child: Text(

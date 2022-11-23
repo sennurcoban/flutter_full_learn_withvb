@@ -59,7 +59,7 @@ class _ListViewLearnState extends State<ListViewLearn> {
               ]),
           ),
           IconButton(onPressed: (){}, icon:const Icon(Icons.close)),
-          _ListDemo(),
+          const _ListDemo(),
         ],
       ),
     );
@@ -89,6 +89,6 @@ class __ListDemoState extends State<_ListDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
+    return const Placeholder();
   }
 }

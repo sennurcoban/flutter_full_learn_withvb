@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_learn/101/button_learn.dart';
 
 import 'navigate_detail.dart';
 
@@ -63,7 +62,7 @@ mixin NavigatorManager {
           return widget;
         },
         fullscreenDialog: true,
-        settings: RouteSettings(),
+        settings:const RouteSettings(),
       ),
     );
   }
@@ -74,7 +73,7 @@ mixin NavigatorManager {
         builder: (context) {
           return widget;
         },
-        settings: RouteSettings(
+        settings:const RouteSettings(
 
         ),
       ),

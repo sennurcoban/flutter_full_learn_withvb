@@ -12,17 +12,17 @@ class PaddingLearn extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(10),
+              padding:const EdgeInsets.all(10),
               child: Container(color: Colors.white, height: 100,)),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding:const EdgeInsets.all(10),
                 color: Colors.white, height: 100,),
             ),
             Padding(
               padding: ProjectPadding.pagePaddingRightOnly + ProjectPadding.pagePaddingVertical,
-              child: Text('Ali'),
+              child:const Text('Ali'),
             ),
 
           ],
@@ -33,6 +33,6 @@ class PaddingLearn extends StatelessWidget {
 }
 
 class ProjectPadding{
-  static const pagePaddingVertical = const EdgeInsets.symmetric(vertical: 10);
-  static const pagePaddingRightOnly = const EdgeInsets.only(right: 20);
+  static const pagePaddingVertical = EdgeInsets.symmetric(vertical: 10);
+  static const pagePaddingRightOnly = EdgeInsets.only(right: 20);
 }

@@ -15,7 +15,7 @@ class _ListViewBuilderLearnState extends State<ListViewBuilderLearn> {
       body: ListView.separated(
 
         separatorBuilder: (context, index) {
-          return Divider(
+          return const Divider(
             color: Colors.white,
           );
         },

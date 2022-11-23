@@ -12,15 +12,15 @@ class CardLearn extends StatelessWidget {
           Card(
             margin: ProjectMargins.cardMargins,
             // color :Colors.white,
-            child: SizedBox(height: 100, width: 500, child: Center(child: Text('Ali')),),
+            child:const SizedBox(height: 100, width: 500, child: Center(child: Text('Ali')),),
             shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20)),
           ),
           Card(
               color: Theme.of(context).colorScheme.error,
-              child: SizedBox(height: 100, width: 100,),
+              child:const SizedBox(height: 100, width: 100,),
               shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(20)),
           ),
-          _CustomCard(child: SizedBox(height: 100, width: 500, child: Center(child: Text('Ali')),),)
+          _CustomCard(child:const SizedBox(height: 100, width: 500, child: Center(child: Text('Ali')),),)
 
         ],
       ),

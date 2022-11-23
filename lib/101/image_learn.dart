@@ -14,7 +14,7 @@ class ImageLearn extends StatelessWidget {
           height: 100,
           width: 300,
           child: PngImage(name: ImageItems().appleBookWithoutPath),),
-          Image.network('https://upload.wikimedia.org/wikipedia/Apple-book.svg/1018px-Apple-book.svg.png',
+          Image.network(_imagePath,
           errorBuilder: (context, error, stackTrace) { return PngImage(name: ImageItems().appleBookWithoutPath);}
           ),
           

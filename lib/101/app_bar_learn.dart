@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class AppBarLearnView extends StatelessWidget {
   const AppBarLearnView({super.key});
@@ -9,7 +8,7 @@ class AppBarLearnView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(_title),
-        leading: Icon(Icons.chevron_left),
+        leading:const Icon(Icons.chevron_left),
         // automaticallyImplyLeading: false, //back iconunu default etme
         // leadingWidth: 23,// back butonunu sola daha yakınlaştırır
         // toolbarTextStyle: TextStyle(color: Colors.amber),
@@ -17,10 +16,10 @@ class AppBarLearnView extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.menu),
+            icon:const Icon(Icons.menu),
             
           ),
-          Center(child: CircularProgressIndicator()),
+          const Center(child: CircularProgressIndicator()),
           
         ],
       ),

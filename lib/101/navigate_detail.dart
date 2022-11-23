@@ -22,7 +22,7 @@ class _NavigateLearnState extends State<NavigateDetailLearn> {
           Navigator.of(context).pop(!widget.isOkay);
         }, 
         icon: Icon(Icons.check, color: widget.isOkay ? Colors.red : Colors.green,), 
-        label: widget.isOkay ? Text('Red') : Text('Onayla'),),
+        label: widget.isOkay ?const Text('Red') :const Text('Onayla'),),
       ),
     );
   }

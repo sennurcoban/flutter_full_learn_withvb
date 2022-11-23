@@ -12,12 +12,12 @@ class ListTileLearn extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: ListTile(
-                title: RandomImage(),
+                title:const RandomImage(),
                 // dense: true, -sıkıştırır padding varsa siler
                 onTap: () {},
-                subtitle: Text('How do you use your card'),
-                leading: Icon(Icons.money),
-                trailing: SizedBox(width: 20, child: Icon(Icons.chevron_right)),
+                subtitle:const Text('How do you use your card'),
+                leading:const Icon(Icons.money),
+                trailing:const SizedBox(width: 20, child: Icon(Icons.chevron_right)),
               ),
             ),
           )

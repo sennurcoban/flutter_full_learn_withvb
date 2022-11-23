@@ -9,26 +9,26 @@ class IconLearnView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
+        title:const Text('Home'),
       ),
       body: Column(
         children: [
           IconButton(
             onPressed: () {}, 
-            icon: Icon(Icons.message_outlined), 
+            icon:const Icon(Icons.message_outlined), 
             color: Theme.of(context).backgroundColor, 
             iconSize: IconSizes.iconSmall2x,),
 
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
 
             IconButton(
             onPressed: () {}, 
-            icon: Icon(Icons.message_outlined), 
+            icon:const Icon(Icons.message_outlined), 
             color: iconColors.froly, 
             iconSize: iconSizes.iconSmall,),
             IconButton(
             onPressed: () {}, 
-            icon: Icon(Icons.message_outlined), 
+            icon:const Icon(Icons.message_outlined), 
             color: iconColors.froly, 
             iconSize: iconSizes.iconSmall,)
             
@@ -45,5 +45,5 @@ class IconSizes {
 }
 
 class IconColors {
-  final Color froly = Color(0xffED617A);
+  final Color froly = const Color(0xffED617A);
 }

@@ -11,7 +11,7 @@ class StatefulLearn extends StatefulWidget {
 
 class _StatefulLearnState extends State<StatefulLearn> {
   int _countValue = 0;
-  int _counterCustom = 0;
+  // int _counterCustom = 0;
 
   void _updateCounter(bool isIncrement){
     if(isIncrement){
@@ -26,7 +26,7 @@ class _StatefulLearnState extends State<StatefulLearn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:Text(LanguageItems.welcomeTitle)),
+      appBar: AppBar(title:const Text(LanguageItems.welcomeTitle)),
       floatingActionButton: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -38,22 +38,21 @@ class _StatefulLearnState extends State<StatefulLearn> {
       body: Column(
         children: [
           Center(child: Text(_countValue.toString(),style: Theme.of(context).textTheme.headline2,)),
-          Placeholder(),
-          CounterButton()
+          const Placeholder(),
+          const CounterButton()
         ],
       ),
     );
   }
 
   FloatingActionButton _incrementButton() {
-    print('burda');
-    return FloatingActionButton(onPressed: (){_updateCounter(true);}, child: Icon(Icons.add),);
+    return FloatingActionButton(onPressed: (){_updateCounter(true);}, child:const Icon(Icons.add),);
   }
 
   Padding _deincrementButton() {
     return Padding(
           padding: const EdgeInsets.only(left:10,),
-          child: FloatingActionButton(onPressed: (){_updateCounter(false);}, child: Icon(Icons.remove),),
+          child: FloatingActionButton(onPressed: (){_updateCounter(false);}, child:const Icon(Icons.remove),),
         );
   }
 }//hayatı belirleyen kısım,logicleri yazacagımız kısım

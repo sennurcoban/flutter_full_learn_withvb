@@ -10,7 +10,7 @@ class ButtonLearn extends StatelessWidget {
       body: Column(
         children: [
           TextButton(
-            child: Text('Save', style: Theme.of(context).textTheme.subtitle1),
+            child:  Text('Save', style: Theme.of(context).textTheme.subtitle1),
             style: ButtonStyle(
                 // backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
                 backgroundColor: MaterialStateProperty.resolveWith((states) {
@@ -22,7 +22,7 @@ class ButtonLearn extends StatelessWidget {
             onPressed: () {},
           ),
           const ElevatedButton(onPressed: null, child: Text('data')),
-          IconButton(onPressed: () {}, icon: Icon(Icons.abc_rounded)),
+          IconButton(onPressed: () {}, icon:const Icon(Icons.abc_rounded)),
           FloatingActionButton(
             onPressed: () {
               //servise istek at
@@ -41,19 +41,21 @@ class ButtonLearn extends StatelessWidget {
           OutlinedButton.icon(
               onPressed: () {},
               icon: const Icon(Icons.abc),
-              label: Text('sennur')),
-          InkWell(onTap: () {}, child: const Text('buton')),
+              label:const Text('sennur')),
+          Expanded(child: InkWell(onTap: () {}, child: const Text('buton'))),
           Container(
             height: 200,
             color: Colors.white,
           ),
           const SizedBox(height: 10,),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(primary: Colors.black, shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20)) )),
-            onPressed: () {}, child: Padding(
-              padding: const EdgeInsets.only(top: 10,bottom: 10,right: 40,left:40),
-              child: Text('Place Bid', style: Theme.of(context).textTheme.headline3),
-            ),)
+          Expanded(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor : Colors.black, shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20)) )),
+              onPressed: () {}, child: Padding(
+                padding: const EdgeInsets.only(top: 10,bottom: 10,right: 40,left:40),
+                child: Text('Place Bid', style: Theme.of(context).textTheme.headline3),
+              ),),
+          )
         ],
       ),
     );

@@ -6,8 +6,8 @@ class IndicatorLearn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [CenterCircularRedProgress()],),
-      body: LinearProgressIndicator(),
+      appBar: AppBar(actions:const [CenterCircularRedProgress()],),
+      body:const LinearProgressIndicator(),
     );
   }
 }
@@ -23,7 +23,7 @@ class CenterCircularRedProgress extends StatelessWidget {
       color: redColor,
       strokeWidth: 8,
       value: 0.9,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.yellow,
     ));
   }
 }
