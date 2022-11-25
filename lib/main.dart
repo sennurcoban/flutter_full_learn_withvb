@@ -11,6 +11,7 @@ import '202/oop_learn_view.dart';
 import '202/sheet_learn.dart';
 import '202/theme/light_theme.dart';
 import '303/callback_learn.dart';
+import '303/reqres_resource/view/asy_view.dart';
 import '303/tabbar_advance.dart';
 
 void main() {
@@ -63,7 +64,7 @@ class MyApp extends StatelessWidget {
             elevation: 0,
             systemOverlayStyle: SystemUiOverlayStyle.light,
           )),
-      home: TabbarAdvance(),
+      home: const ASYView(),
       // home:StatefullLifeCycle(message: "sennurrr",),
     );
   }
