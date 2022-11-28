@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_full_learn/product/global/resource_context.dart';
+import 'package:provider/provider.dart';
 
 class ImageLearn extends StatelessWidget {
   const ImageLearn({super.key});
@@ -7,29 +9,36 @@ class ImageLearn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.read<ResourceContext>().clear();
+              },
+              icon: Icon(Icons.remove))
+        ],
+        title: Text(context.read<ResourceContext>().model?.data?.length.toString() ?? ''),
+      ),
       body: Column(
         children: [
           SizedBox(
-          height: 100,
-          width: 300,
-          child: PngImage(name: ImageItems().appleBookWithoutPath),),
-          Image.network(_imagePath,
-          errorBuilder: (context, error, stackTrace) { return PngImage(name: ImageItems().appleBookWithoutPath);}
+            height: 100,
+            width: 300,
+            child: PngImage(name: ImageItems().appleBookWithoutPath),
           ),
-          
+          Image.network(_imagePath, errorBuilder: (context, error, stackTrace) {
+            return PngImage(name: ImageItems().appleBookWithoutPath);
+          }),
         ],
       ),
     );
   }
 }
 
-class ImageItems{
+class ImageItems {
   final String appleWithBook = "assets/apple-and-book-png-transparent.png";
   final String appleBook = "assets/png/ic_apple_book.png";
   final String appleBookWithoutPath = "ic_apple_book";
-
-
 }
 
 class PngImage extends StatelessWidget {
@@ -38,7 +47,7 @@ class PngImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(_nameWithPath,fit: BoxFit.cover);
+    return Image.asset(_nameWithPath, fit: BoxFit.cover);
   }
 
   String get _nameWithPath => 'assets/png/$name.png';

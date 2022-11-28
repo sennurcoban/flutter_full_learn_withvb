@@ -6,22 +6,23 @@ import 'package:flutter_full_learn/303/reqres_resource/service/reqres_service.da
 
 import '../../../product/service/network_manager.dart';
 import '../model/reqres_model.dart';
-import '../view/asy_view.dart';
+import '../view/req_res_view.dart';
 
-abstract class ASYViewModel extends LoadingStatefull<ASYView> with ProjectDioMixin {
-  late final IASYService asyService;
+abstract class ReqresViewModel extends LoadingStatefull<ReqresView> with ProjectDioMixin {
+  late final IReqresService reqresService;
 
-  List<DataReqres> resources = [];
+  List<Data> resources = [];
   @override
   void initState() {
     super.initState();
-    asyService = ASYService(service);
+    // reqresService = ReqresService(Dio(BaseOptions(baseUrl: 'https://reqres.in/api')));
+    reqresService = ReqresService(service);
     _fetch();
   }
 
   Future<void> _fetch() async {
     changeLoading();
-    resources = (await asyService.fetchResourceItem())?.data ?? [];
+    resources = (await reqresService.fetchResourceItem())?.data ?? [];
     changeLoading();
   }
 }
