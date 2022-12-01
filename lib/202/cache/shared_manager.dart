@@ -1,8 +1,11 @@
 import 'package:flutter_full_learn/202/cache/shared_not_initialize.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-enum SharedKeys{counter,users}
+enum SharedKeys { counter, users }
 
+// SharedPreferences'ı bir singletona ceviriip sonra projenin başlangıcında initialize edip SharedPreferencesı doldurup
+// ardından bütün instancelarımızı aynı SharedPreferences instancelarını kullanarak hayatına devam edebilir
+//singleton class yap
 class SharedManager {
   SharedPreferences? preferences;
 
