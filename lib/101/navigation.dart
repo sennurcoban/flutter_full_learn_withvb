@@ -11,7 +11,7 @@ class NavigationLearn extends StatefulWidget {
 
 class _NavigationLearnState extends State<NavigationLearn> with NavigatorManager {
   List<int> selectedItems = [];
-  void addSelected(int index,bool isAdd) {
+  void addSelected(int index, bool isAdd) {
     setState(() {
       isAdd ? selectedItems.add(index) : selectedItems.remove(index);
     });
@@ -24,10 +24,11 @@ class _NavigationLearnState extends State<NavigationLearn> with NavigatorManager
         itemBuilder: (context, index) {
           return TextButton(
             onPressed: () async {
-              final response = await navigateToWidgetNormal<bool>(context, 
-              NavigateDetailLearn(
-                isOkay: selectedItems.contains(index),
-              ));
+              final response = await navigateToWidgetNormal<bool>(
+                  context,
+                  NavigateDetailLearn(
+                    isOkay: selectedItems.contains(index),
+                  ));
               if (response is bool) {
                 addSelected(index, response);
               }
@@ -47,7 +48,6 @@ class _NavigationLearnState extends State<NavigationLearn> with NavigatorManager
           // Navigator.of(context).push(MaterialPageRoute(builder: (context){
           //   return const ButtonLearn();
           // },fullscreenDialog: true //aşagıdan yukarıya doğru açılır kapanır));
-          
         },
       ),
     );
@@ -55,6 +55,8 @@ class _NavigationLearnState extends State<NavigationLearn> with NavigatorManager
 }
 
 mixin NavigatorManager {
+  static var instance;
+
   void navigateToWidget(BuildContext context, Widget widget) {
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -62,7 +64,7 @@ mixin NavigatorManager {
           return widget;
         },
         fullscreenDialog: true,
-        settings:const RouteSettings(),
+        settings: const RouteSettings(),
       ),
     );
   }
@@ -73,9 +75,7 @@ mixin NavigatorManager {
         builder: (context) {
           return widget;
         },
-        settings:const RouteSettings(
-
-        ),
+        settings: const RouteSettings(),
       ),
     );
   }

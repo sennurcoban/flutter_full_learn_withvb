@@ -26,7 +26,9 @@ class _LottieLearnState extends State<LottieLearn> with TickerProviderStateMixin
 
   Future<void> navigateToHome() async {
     await Future.delayed(Duration(seconds: 1));
-    Navigator.of(context).pushNamed(NavigateRoutes.home.withParaghf);
+    Navigator.of(context).pushReplacementNamed(NavigateRoutes
+        .home.withParaghf); //sayafaya gitti geri dönemez pushReplacementNamed back butonunu kaldırmak için
+    //back butonunu kaldırmak istemiyorsak pushNamed
   }
 
   @override
