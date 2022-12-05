@@ -23,13 +23,18 @@ class ReqresProvider extends ChangeNotifier {
 
   Future<void> _fetch() async {
     _changeLoading();
-    resources = (await reqresService.fetchResourceItem())?.data ?? [];
+    resources = await fetchItems();
     _changeLoading();
+  }
+
+  Future<List<Data>> fetchItems() async {
+    return (await reqresService.fetchResourceItem())?.data ?? [];
   }
 
   //Dataları locale save etmek istiyorum,bana context lazım(instance)
   //view model layerlerine yazmak zorunda değiliz
-  void saveToLocale(ResourceContext resourceContext) {
+  bool? saveToLocale(ResourceContext resourceContext, List<Data> resources) {
     resourceContext.saveModel(ResourceModel(data: resources));
+    return resourceContext.model?.data?.isNotEmpty;
   }
 }

@@ -41,7 +41,9 @@ class _ReqresViewState extends State<ReqresView> with ProjectDioMixin {
               actions: [
                 IconButton(
                     onPressed: () {
-                      context.read<ReqresProvider>().saveToLocale(context.read<ResourceContext>());
+                      context
+                          .read<ReqresProvider>()
+                          .saveToLocale(context.read<ResourceContext>(), context.read<ReqresProvider>().resources);
                       Navigator.of(context).push(MaterialPageRoute(
                         builder: (_) {
                           return ImageLearn();

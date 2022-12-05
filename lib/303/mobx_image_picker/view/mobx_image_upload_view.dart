@@ -18,11 +18,19 @@ class _MobxImageUploadState extends State<MobxImageUpload> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.save),
+          onPressed: () {
+            _imageUploadViewModel.saveDataToService();
+          }),
       appBar: AppBar(
         title: Text('Image Upload'),
         actions: [
           Observer(builder: (_) {
             return _imageUploadViewModel.isLoading ? CircularProgressIndicator() : SizedBox();
+          }),
+          Observer(builder: (_) {
+            return Text(_imageUploadViewModel.downloadText);
           })
         ],
       ),
@@ -34,20 +42,10 @@ class _MobxImageUploadState extends State<MobxImageUpload> {
             child: Row(
               children: [
                 Expanded(
-                  child: Observer(
-                    builder: (context) {
-                      return _imageUploadViewModel.file != null ? Image.file(_imageUploadViewModel.file!) : SizedBox();
-                    },
-                  ),
+                  child: _localImage(),
                 ),
                 Expanded(
-                  child: FittedBox(
-                    child: IconButton(
-                        onPressed: () async {
-                          _imageUploadViewModel.saveLocalFile(await _imageUploadManager.fetchFromLibrary());
-                        },
-                        icon: Lottie.network(_imageUploadLottiePath)),
-                  ),
+                  child: _imageUploadButton(),
                 ),
               ],
             ),
@@ -56,9 +54,33 @@ class _MobxImageUploadState extends State<MobxImageUpload> {
         Divider(),
         Expanded(
           flex: 4,
-          child: SizedBox(),
+          child: _imageNetwork(),
         )
       ]),
     );
+  }
+
+  Observer _localImage() {
+    return Observer(
+      builder: (context) {
+        return _imageUploadViewModel.file != null ? Image.file(_imageUploadViewModel.file!) : SizedBox();
+      },
+    );
+  }
+
+  FittedBox _imageUploadButton() {
+    return FittedBox(
+      child: IconButton(
+          onPressed: () async {
+            _imageUploadViewModel.saveLocalFile(await _imageUploadManager.fetchFromLibrary());
+          },
+          icon: Lottie.network(_imageUploadLottiePath)),
+    );
+  }
+
+  Observer _imageNetwork() {
+    return Observer(builder: (_) {
+      return _imageUploadViewModel.imageUrl.isNotEmpty ? Image.network(_imageUploadViewModel.imageUrl) : SizedBox();
+    });
   }
 }

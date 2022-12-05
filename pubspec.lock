@@ -176,6 +176,27 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.4"
+  device_info:
+    dependency: transitive
+    description:
+      name: device_info
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.3"
+  device_info_platform_interface:
+    dependency: transitive
+    description:
+      name: device_info_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
+  diacritic:
+    dependency: transitive
+    description:
+      name: diacritic
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.3"
   dio:
     dependency: "direct main"
     description:
@@ -436,6 +457,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.5.4"
+  kartal:
+    dependency: "direct main"
+    description:
+      name: kartal
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.7.0"
   lints:
     dependency: transitive
     description:
@@ -457,6 +485,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  mask_text_input_formatter:
+    dependency: transitive
+    description:
+      name: mask_text_input_formatter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.4.0"
   matcher:
     dependency: transitive
     description:
@@ -499,6 +534,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
+  mockito:
+    dependency: "direct dev"
+    description:
+      name: mockito
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.3.2"
   nested:
     dependency: transitive
     description:
@@ -513,6 +555,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  package_info_plus:
+    dependency: transitive
+    description:
+      name: package_info_plus
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.2"
+  package_info_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: package_info_plus_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   path:
     dependency: transitive
     description:
@@ -597,6 +653,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.1"
+  share:
+    dependency: transitive
+    description:
+      name: share
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.4"
   shared_preferences:
     dependency: "direct main"
     description:

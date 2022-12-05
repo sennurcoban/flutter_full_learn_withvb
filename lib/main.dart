@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_full_learn/303/feed_view.dart';
-import 'package:flutter_full_learn/303/navigator/navigate_home_view.dart';
 import 'package:flutter_full_learn/product/constant/project_items.dart';
 import 'package:flutter_full_learn/product/global/resource_context.dart';
 import 'package:flutter_full_learn/product/global/theme_notifier.dart';
 import 'package:flutter_full_learn/product/navigator/navigator_custom.dart';
-import 'package:flutter_full_learn/product/navigator/navigator_routes.dart';
 import 'package:provider/provider.dart';
 import '101/color_learn.dart';
-import '101/navigation.dart';
 import '303/lottie_learn.dart';
 import '303/mobx_image_picker/view/mobx_image_upload_view.dart';
-import '303/navigator/navigate_home_detail_view.dart';
 import '303/navigator/navigator_manager.dart';
+import '303/package/kartal_view.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -85,7 +81,7 @@ class MyApp extends StatelessWidget with NavigatorCustom {
       // routes: NavigatorRoutes().items,
       onGenerateRoute: onGenerateRoute,
       navigatorKey: NavigatorManagement.instance.navigatorGlobalKey,
-      home: MobxImageUpload(),
+      home: KartalView(),
       // home:StatefullLifeCycle(message: "sennurrr",),
     );
   }
