@@ -7,9 +7,8 @@ import 'package:flutter_full_learn/product/navigator/navigator_custom.dart';
 import 'package:provider/provider.dart';
 import '101/color_learn.dart';
 import '303/lottie_learn.dart';
-import '303/mobx_image_picker/view/mobx_image_upload_view.dart';
 import '303/navigator/navigator_manager.dart';
-import '303/package/kartal_view.dart';
+import '404/bloc/future/login/view/login_view.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -19,7 +18,7 @@ void main() {
         create: (context) => ThemeNotifier(),
       )
     ],
-    builder: (context, child) => MyApp(),
+    builder: (context, child) => const MyApp(),
   ));
 }
 
@@ -74,14 +73,17 @@ class MyApp extends StatelessWidget with NavigatorCustom {
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
           builder: (context) {
-            return LottieLearn();
+            return const LottieLearn();
           },
         );
       },
+      // builder: (context, widget) {
+
+      // },
       // routes: NavigatorRoutes().items,
       onGenerateRoute: onGenerateRoute,
       navigatorKey: NavigatorManagement.instance.navigatorGlobalKey,
-      home: KartalView(),
+      home: const LoginView(),
       // home:StatefullLifeCycle(message: "sennurrr",),
     );
   }
