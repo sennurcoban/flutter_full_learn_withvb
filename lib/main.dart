@@ -1,25 +1,27 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_full_learn/product/constant/project_items.dart';
-import 'package:flutter_full_learn/product/global/resource_context.dart';
-import 'package:flutter_full_learn/product/global/theme_notifier.dart';
+import 'package:flutter_full_learn/product/init/product_init.dart';
 import 'package:flutter_full_learn/product/navigator/navigator_custom.dart';
 import 'package:provider/provider.dart';
 import '101/color_learn.dart';
 import '303/lottie_learn.dart';
 import '303/navigator/navigator_manager.dart';
-import '404/bloc/future/login/view/login_view.dart';
+import '404/compute/compute_learn.dart';
 
-void main() {
-  runApp(MultiProvider(
-    providers: [
-      Provider(create: (_) => ResourceContext()),
-      ChangeNotifierProvider<ThemeNotifier>(
-        create: (context) => ThemeNotifier(),
-      )
-    ],
-    builder: (context, child) => const MyApp(),
-  ));
+Future<void> main() async {
+  final productInit = ProductInit();
+  await productInit.init();
+  runApp(
+    EasyLocalization(
+        supportedLocales: productInit.localizationInit.supportedLocales,
+        path: productInit.localizationInit.localizationPath,
+        child: MultiProvider(
+          providers: productInit.providers,
+          builder: (context, child) => const MyApp(),
+        )),
+  );
 }
 
 class MyApp extends StatelessWidget with NavigatorCustom {
@@ -31,6 +33,9 @@ class MyApp extends StatelessWidget with NavigatorCustom {
       title: ProjectItems.projectName,
       debugShowCheckedModeBanner: false,
       // theme: context.watch<ThemeNotifier>().currentTheme,
+      builder: (context, widget) {
+        return MediaQuery(data: MediaQuery.of(context).copyWith(textScaleFactor: 1), child: widget ?? const SizedBox());
+      },
       theme: ThemeData.dark().copyWith(
           tabBarTheme: const TabBarTheme(
               labelColor: Colors.white, unselectedLabelColor: Colors.red, indicatorSize: TabBarIndicatorSize.label),
@@ -68,6 +73,9 @@ class MyApp extends StatelessWidget with NavigatorCustom {
             elevation: 0,
             systemOverlayStyle: SystemUiOverlayStyle.light,
           )),
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
 
       // initialRoute: '/',
       onUnknownRoute: (settings) {
@@ -77,13 +85,10 @@ class MyApp extends StatelessWidget with NavigatorCustom {
           },
         );
       },
-      // builder: (context, widget) {
-
-      // },
       // routes: NavigatorRoutes().items,
       onGenerateRoute: onGenerateRoute,
       navigatorKey: NavigatorManagement.instance.navigatorGlobalKey,
-      home: const LoginView(),
+      home: const ComputeLearnView(),
       // home:StatefullLifeCycle(message: "sennurrr",),
     );
   }

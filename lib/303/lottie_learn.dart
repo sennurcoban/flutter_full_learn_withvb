@@ -4,6 +4,7 @@ import 'package:flutter_full_learn/product/global/theme_notifier.dart';
 import 'package:flutter_full_learn/product/navigator/navigator_routes.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:uikit/uikit.dart';
 
 import '../product/constant/duration_items.dart';
 
@@ -25,7 +26,7 @@ class _LottieLearnState extends State<LottieLearn> with TickerProviderStateMixin
   }
 
   Future<void> navigateToHome() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     Navigator.of(context).pushReplacementNamed(NavigateRoutes
         .home.withParaghf); //sayafaya gitti geri dönemez pushReplacementNamed back butonunu kaldırmak için
     //back butonunu kaldırmak istemiyorsak pushNamed
@@ -45,19 +46,7 @@ class _LottieLearnState extends State<LottieLearn> with TickerProviderStateMixin
               child: Lottie.asset(LottieItems.themeChange.lottiePath, repeat: false, controller: controller))
         ],
       ),
-      body: LoadingLottie(),
+      body: const LoadingLottie(),
     );
-  }
-}
-
-class LoadingLottie extends StatelessWidget {
-  const LoadingLottie({
-    Key? key,
-  }) : super(key: key);
-  final _loadinglottie = 'https://assets6.lottiefiles.com/packages/lf20_g32kbbp3.json';
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Lottie.network(_loadinglottie));
   }
 }
